@@ -176,7 +176,6 @@
     skillOptionSelect: document.getElementById("skillOptionSelect"),
     addSkillOptionBtn: document.getElementById("addSkillOptionBtn"),
     noSkillsBtn: document.getElementById("noSkillsBtn"),
-    skillInput: document.getElementById("skillInput"),
     skillsChips: document.getElementById("skillsChips"),
     generateBtn: document.getElementById("generateBtn"),
     backBtn: document.getElementById("backBtn"),
@@ -275,7 +274,6 @@
   }
 
   function setSkillInputsEnabled(enabled) {
-    el.skillInput.disabled = !enabled;
     el.skillOptionSelect.disabled = !enabled;
     el.addSkillOptionBtn.disabled = !enabled;
     el.noSkillsBtn.disabled = !enabled;
@@ -285,7 +283,6 @@
     state.userSkills = [];
     state.noSkillsSelected = false;
     renderSkillChips();
-    el.skillInput.value = "";
     el.skillOptionSelect.value = "";
     updateGenerateButtonState();
     clearResults();
@@ -375,11 +372,6 @@
       }
     }
 
-    if (step === 4 && state.userSkills.length === 0 && !state.noSkillsSelected) {
-      el.formMessage.textContent = "Add at least 1 skill or choose None.";
-      return false;
-    }
-
     el.formMessage.textContent = "";
     return true;
   }
@@ -410,8 +402,7 @@
   }
 
   function updateGenerateButtonState() {
-    const hasSkillState = state.userSkills.length > 0 || state.noSkillsSelected;
-    const ready = hasSkillState && el.companySelect.value && el.jobSelect.value;
+    const ready = Boolean(el.companySelect.value && el.jobSelect.value);
     el.generateBtn.disabled = !ready;
   }
 
@@ -581,7 +572,6 @@
     el.companySelect.disabled = true;
     el.companyHint.textContent = "Select a job role first.";
 
-    el.skillInput.value = "";
     el.skillOptionSelect.innerHTML = '<option value="">Select a suggested skill</option>';
     setSkillInputsEnabled(false);
     el.formMessage.textContent = "";
@@ -642,22 +632,11 @@
     el.noSkillsBtn.addEventListener("click", () => {
       state.userSkills = [];
       state.noSkillsSelected = true;
-      el.skillInput.value = "";
       el.skillOptionSelect.value = "";
       el.formMessage.textContent = "";
       renderSkillChips();
       updateGenerateButtonState();
       clearResults();
-    });
-
-    el.skillInput.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter") return;
-      event.preventDefault();
-      if (el.skillInput.disabled) return;
-
-      const value = el.skillInput.value;
-      addSkillChip(value);
-      el.skillInput.value = "";
     });
 
     el.generateBtn.addEventListener("click", generateRoadmap);
