@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gap2Grow (ECE)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="wizard-card">
+      <header class="wizard-header">
+        <h1>Gap2Grow (ECE)</h1>
+        <p>Build your ECE skill-gap roadmap, step by step.</p>
+        <div class="progress-wrap" aria-live="polite">
+          <div class="progress-top">
+            <span id="stepLabel">Step 1/5</span>
+            <span id="stepTitle">Enter Name</span>
+          </div>
+          <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="wizard-body">
+        <div id="formMessage" class="inline-message" aria-live="polite"></div>
+
+        <div class="step-panel is-active" data-step="1">
+          <label for="nameInput">Your Name</label>
+          <input id="nameInput" type="text" placeholder="Enter your full name" autocomplete="name">
+        </div>
+
+        <div class="step-panel" data-step="2">
+          <label for="jobSelect">Dream Job (ECE)</label>
+          <select id="jobSelect">
+            <option value="">Select a role</option>
+          </select>
+        </div>
+
+        <div class="step-panel" data-step="3">
+          <label for="companySelect">Dream Company</label>
+          <select id="companySelect" disabled>
+            <option value="">Select a company</option>
+          </select>
+          <p id="companyHint" class="hint"></p>
+        </div>
+
+        <div class="step-panel" data-step="4">
+          <label for="skillInput">Skills You Already Have</label>
+          <div class="skills-controls">
+            <select id="skillOptionSelect" disabled>
+              <option value="">Select a suggested skill</option>
+            </select>
+            <button id="addSkillOptionBtn" class="btn btn-muted" type="button" disabled>Add Skill</button>
+            <button id="noSkillsBtn" class="btn btn-muted" type="button" disabled>None</button>
+          </div>
+          <input id="skillInput" type="text" placeholder="Type a skill and press Enter" disabled>
+          <p class="hint">Choose from options or type your own and press Enter. Click × on a chip to remove it, or use None.</p>
+          <div id="skillsChips" class="chips" aria-live="polite"></div>
+        </div>
+
+        <div class="step-panel" data-step="5">
+          <div class="summary-box">
+            <p><strong>Name:</strong> <span id="summaryName">-</span></p>
+            <p><strong>Role:</strong> <span id="summaryRole">-</span></p>
+            <p><strong>Company:</strong> <span id="summaryCompany">-</span></p>
+          </div>
+          <button id="generateBtn" class="btn btn-primary" disabled>Generate Roadmap</button>
+        </div>
+      </section>
+
+      <footer class="wizard-footer">
+        <button id="backBtn" class="btn btn-muted" type="button">Back</button>
+        <button id="nextBtn" class="btn btn-primary" type="button">Next</button>
+        <button id="resetBtn" class="btn btn-danger" type="button">Reset</button>
+      </footer>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+</body>
+</html>
+
