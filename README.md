@@ -90,9 +90,7 @@ open index.html
 )
 
 
-#### Diagrams
 
-**System Architecture:**
 
 
 
