@@ -109,11 +109,9 @@ open index.html
 
 ---
 
-## Additional Documentation
 
-### For Web Projects with Backend:
 
-#### API Documentation
+
 
 **Base URL:** `https://6998eaec438edfc93ce6870b--courageous-sherbet-40a017.netlify.app/`
 
@@ -153,9 +151,6 @@ open index.html
 
 ---
 
-### For Mobile Apps:
-
-#### App Flow Diagram
 
 
 
@@ -163,20 +158,8 @@ open index.html
 
 
 
-**Building from Source:**
-```bash
-# For Android
-flutter build apk
-# or
-./gradlew assembleDebug
 
-# For iOS
-flutter build ios
-# or
-xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-```
 
----
 
 
 
@@ -197,9 +180,10 @@ python script.py [options] [arguments]
 ```
 
 **Available Commands:**
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
+**Arguments:**
+- `input_file` (required): Path to input data file (e.g., `data.json`)
+- `output_file` (optional): Path to save processed output (e.g., `result.json`)
+
 
 **Options:**
 - `-h, --help` - Show help message and exit
@@ -283,17 +267,7 @@ python script.py -v --format json data.json
 
 ---
 
-## Project Demo
 
-### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
-
-*Explain what the video demonstrates - key features, user flow, technical highlights*
-
-### Additional Demos
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
-
----
 
 ## AI Tools Used (Optional - For Transparency Bonus)
 
